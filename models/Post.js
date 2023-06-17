@@ -31,7 +31,7 @@ Post.init(
     sequelize,
     timestamps: true,
     freezeTableName: true,
-    tableName: "pins",
+    tableName: "posts",
   }
 );
 

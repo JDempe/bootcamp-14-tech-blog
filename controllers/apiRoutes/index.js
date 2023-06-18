@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const userRoutes = require("./userRoutes");
-const pinRoutes = require("./pinRoutes");
+const postRoutes = require("./postRoutes");
 
 router.use("/user", userRoutes);
-router.use("/pins", pinRoutes);
+router.use("/posts", postRoutes);
 
 // Catch-all route handler for undefined API routes
 router.use((req, res) => {

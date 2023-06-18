@@ -16,12 +16,12 @@ router.get("/homepage", async (req, res) => {
     // Sort the posts from newest to oldest by date
     posts.sort((a, b) => b.updatedAt - a.updatedAt);
 
-    // Limit the rendered output to 20 pins
+    // Limit the rendered output to 20 posts
     const postsData = posts.slice(0, 20).map((post) => ({
       postID: post.id,
       postTitle: post.postTitle,
       postDescription: post.postDescription,
-      // take the pin.updatedAt and cut it off at the 4th space and only take the first half
+      // take the post.updatedAt and cut it off at the 4th space and only take the first half
       timestamp: post.updatedAt
         ? post.updatedAt.toString().split(" ").slice(0, 4).join(" ")
         : post.updatedAt,
@@ -76,7 +76,7 @@ router.get("/dashboard", async (req, res) => {
 });
 
 // GET specific user's dashboard page
-// Navigate to /pins/user/:username
+// Navigate to /posts/user/:username
 router.get("/dashboard/:username", async (req, res) => {
   try {
     // Find the user's username by the session user_id
@@ -95,12 +95,12 @@ router.get("/dashboard/:username", async (req, res) => {
       return res.redirect("/homepage");
     }
 
-    // Find the user's pins
+    // Find the user's posts
     const posts = await Post.findAll({
       where: { user_id: user.id },
     });
 
-    // Create an array of the pins data
+    // Create an array of the posts data
     var postsData = posts.map((post) => ({
       postId: post.id,
       postTitle: post.postTitle,

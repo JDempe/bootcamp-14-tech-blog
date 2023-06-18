@@ -35,18 +35,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
 
-// Render the homepage
-app.get("/", (req, res) => {
-  res.render("homepage", {
-    layout: "main",
-    styles: ["homepage"],
-    scripts: ["homepage", "modal"],
-    user: {
-      id: req.session.user_id,
-      isLoggedIn: req.session.logged_in
-    }
-  });
-});
 app.use(routes);
 
 // Start the server

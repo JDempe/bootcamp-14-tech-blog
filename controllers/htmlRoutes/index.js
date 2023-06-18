@@ -1,6 +1,11 @@
 const router = require("express").Router();
 const { User, Post } = require("../../models");
 
+// GET redirect to homepage
+router.get("/", (req, res) => {
+  res.redirect("/homepage");
+});
+
 // GET homepage
 // Navigate to /homepage and pull 20 posts to display along with username
 router.get("/homepage", async (req, res) => {

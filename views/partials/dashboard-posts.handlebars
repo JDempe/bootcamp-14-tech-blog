@@ -1,22 +1,16 @@
 {{#each myPosts}}
-  <div class="pin" data-id="{{postId}}">
-    <!-- CONTAINS DATE -->
-    <div class="date-container">
-      <hr class="hr date-hr" />
-      <div class="timestamp">{{timestamp}}</div>
-      <hr class="hr date-hr" />
-    </div>
+  <div class="post" data-id="{{postId}}">
     <!-- CONTAINS CARD -->
     <div class="card-container">
-      <div class="card card-pin-color">
+      <div class="card card-post-color">
         <form class="card-body was-validated">
           <div class="card-top-section">
-            <!-- DISPLAY PIN TITLE -->
+            <!-- DISPLAY POST TITLE -->
             <input
               type="text"
               class="card-title"
               placeholder="Enter Title"
-              aria-label="Pin Title"
+              aria-label="Post Title"
               value="{{postTitle}}"
             />
             <div class="valid-feedback" style="display: none;">
@@ -33,13 +27,11 @@
               <i class="bi bi-trash card-icon"></i>
             </div>
           </div>
-          <hr class="hr card-hr" />
           <!-- CARD TEXT -->
           <textarea
             class="card-text form-control"
             placeholder="Enter Text"
-            id="validationTextarea"
-            aria-label="Pin Body Text"
+            aria-label="Post Body Text"
             required
           >{{postDescription}}</textarea>
           <div class="changes-btn-container">
@@ -50,9 +42,6 @@
               Discard Changes
             </button>
           </div>
-          <!-- <div class="invalid-feedback">
-            Please enter a message in the textarea.
-          </div> -->
         </form>
       </div>
     </div>

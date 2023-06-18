@@ -9,7 +9,7 @@
   align-items: center;
 }
 
-#create-new-pin {
+#create-new-post {
   align-items: center;
  margin-right: 5px;
 }
@@ -170,7 +170,7 @@
   color: #5a7ce4; /* Change the color when hovered */
 }
 
-.bi-pin-angle:hover {
+.bi-post-angle:hover {
   color: #f09b4c; /* Change the color when hovered */
 }
 
@@ -258,8 +258,8 @@
   border-color: #63709d;
 }
 
-/* Turns off features while pin is in creation mode */
-.create-pin-flag i {
+/* Turns off features while post is in creation mode */
+.create-post-flag i {
   display: none !important;
 }
 
@@ -275,7 +275,7 @@ h3 {
   border-color: #5b6589;
 }
 
-.bi-pin {
+.bi-post {
   color: var(--discovery-page-text-dark);
 }
 

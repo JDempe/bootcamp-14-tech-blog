@@ -27,17 +27,6 @@ User.init(
         len: [8, 128],
       },
     },
-    // join avatar and user table
-    // each users can have multiple avatars and vice versa.
-    avatar_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      defaultValue: 51,
-      reference: {
-        model: "avatars",
-        key: "id",
-      },
-    },
   },
   {
     hooks: {

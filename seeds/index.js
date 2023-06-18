@@ -23,13 +23,6 @@ const seedDb = async () => {
   }
   console.log("'\n ----- Posts seeded -----\n");
 
-  await Avatar.bulkCreate(avatarSeedData, {
-    individualHooks: true,
-    returning: true,
-  });
-
-  console.log("'\n ----- Avatars seeded -----\n");
-
   process.exit(0);
 };
 

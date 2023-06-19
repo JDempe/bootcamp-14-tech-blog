@@ -1,9 +1,25 @@
 const express = require("express");
 const router = express.Router();
-const { Comment } = require("../../models");
+const { Comment, User } = require("../../models");
+
+// GET route to receive a specific id
+router.get("/:id", async (req, res) => {
+  try {
+    const comment = await Comment.findByPk(req.params.id);
+
+    if (comment) {
+      res.status(200).json(comment);
+    } else {
+      res.status(404).json("No comment found with that id!");
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 
 // GET route to retrieve all comments for a specific post by post ID
-router.get("/:postid", async (req, res) => {
+router.get("/post/:postid", async (req, res) => {
   try {
    // Find all comments where the post_id is equal to the post id in the request parameters
       const comments = await Comment.findAll({
@@ -25,11 +41,22 @@ router.post("/create/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
+    // get the username from the req.session.user_id
+    const user = await User.findByPk(req.session.user_id);
+    const username = user.username;
+
+
     const newComment = await Comment.create({
       ...req.body,
       user_id: req.session.user_id,
       post_id: id,
     });
+
+    const returnVal = {
+      ...newComment,
+      username,
+    };
+
     res.status(201).json(newComment);
   } catch (error) {
     res.status(400).json({ error: error.message });

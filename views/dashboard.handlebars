@@ -1,34 +1,27 @@
 <div>
   <div class="create-search-section ">
 
-   {{!-- Create a new post button --}}
-
-      <div id="create-new-post" class="tab-pane fade show active" role="tabpanel">
-        <a id="create-new-post-btn" class="btn create-text" role="button">
-          <i class="bi bi-plus-square-fill"></i>
-          Create a new post</a>
-      </div>
-      <div id="refresh-post" class="tab-pane fade" role="tabpanel">
-        {{!-- Reload the page button --}}
-        <a id="refresh-post-btn" class="btn btn-refresh" role="button">
-          <i class="bi bi-arrow-clockwise"></i>
-          Refresh saved posts</a>
-      </div>
-      <!-- Search bar -->
-
+    {{!-- Create a new post button --}}
+    <!-- Search bar -->
     {{> search-bar}}
+    <div id="create-new-post" class="tab-pane fade show active" role="tabpanel">
+      <a id="create-new-post-btn" class="btn create-text" role="button">
+        <i class="bi bi-plus-square-fill"></i>
+        Create a new post</a>
     </div>
 
-<div id="my-posts-area">
+  </div>
+
+  <div id="my-posts-area">
 
 
-  {{!-- if the user has posts, then show them, otherwise show the no posts message --}}
-  {{#if myPosts}}
-  {{> dashboard-posts}}
-  {{else}}
-  {{> no-posts-found}}
-  {{/if}}
-</div>
+    {{!-- if the user has posts, then show them, otherwise show the no posts message --}}
+    {{#if myPosts}}
+    {{> dashboard-posts}}
+    {{else}}
+    {{> no-posts-found}}
+    {{/if}}
+  </div>
   {{!-- HIDDEN ELEMENT --}}
   <div id="template-card-hidden" hidden class="post">
     <!-- CONTAINS CARD -->

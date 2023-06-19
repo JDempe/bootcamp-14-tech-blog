@@ -4,23 +4,41 @@ const User = require('./User');
 const Comment = require('./Comment');
 
 // create associations
-// Post belongsTo User
+// Post belongsTo User, and User hasMany Post
 Post.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
 });
 
-// Comment belongsTo Post
+User.hasMany(Post, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
+});
+
+// Comments belongsTo Post, and Post hasMany Comments
+// Not actually associating the Comment model with the Post model yet
 Comment.belongsTo(Post, {
   foreignKey: 'post_id',
   onDelete: 'CASCADE',
 });
 
-// Comment belongsTo User
+Post.hasMany(Comment, {
+  foreignKey: 'post_id',
+  onDelete: 'CASCADE',
+});
+
+
+// Comment belongsTo User, and User hasMany Comments
 Comment.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
 });
+
+User.hasMany(Comment, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
+});
+
 
 module.exports = {
   User,

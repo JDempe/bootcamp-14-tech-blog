@@ -120,9 +120,7 @@ router.get("/session/lookup", async (req, res) => {
 
     // verify that there is an active session
     if (!userSession || !userLoggedIn) {
-        return res.status(404).json({
-            message: `There is no active session. Please log in.`,
-        });
+        return false;
     }
 
     // verify that the user exists in the database.

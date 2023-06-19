@@ -5,11 +5,15 @@ const { Comment } = require("../../models");
 // GET route to retrieve all comments for a specific post by post ID
 router.get("/:postid", async (req, res) => {
   try {
-    const comments = await Comment.findByPk(req.params.postid);
+   // Find all comments where the post_id is equal to the post id in the request parameters
+      const comments = await Comment.findAll({
+      where: { post_id: req.params.postid },
+      });
+
     if (comments) {
       res.status(200).json(comments);
     } else {
-      res.status(404).json({ error: "Comment not found" });
+      res.status(200).json("No comments found" );
     }
   } catch (error) {
     res.status(500).json({ error: error.message });

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Post } = require("../../models");
+const { User, Post, Comment } = require("../../models");
 
 // GET redirect to homepage
 router.get("/", (req, res) => {
@@ -37,6 +37,28 @@ router.get("/homepage", async (req, res) => {
       postsData[i].postUsername = user.username;
     }
 
+    // Find all comments for each post and add them to the postsData
+    for (let i = 0; i < postsData.length; i++) {
+      const comments = await Comment.findAll({
+        where: { post_id: postsData[i].postID },
+      });
+
+      for (let j = 0; j < comments.length; j++) {
+        const usernameData = await User.findByPk(comments[j].user_id, {
+          attributes: { exclude: ["password"] },
+        });
+        const username = usernameData.get({ plain: true });
+        comments[j].commentUsername = username.username;
+      }
+
+      postsData[i].postComments = comments.map((comment) => ({
+        commentText: comment.commentText,
+        // look up the username for each comment from the user_id
+        commentUsername: comment.commentUsername,
+        commentDate: comment.updatedAt,
+        }));
+    }
+    
     // Render the homepage with the postsData
     res.render("homepage", {
       styles: ["homepage"],

@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link active" role="button" href="/homepage" data-toggle="tooltip"
-              data-placement="top" title="Homepage" id="homepage-btn">
+              data-placement="bottom" title="Homepage" id="homepage-btn">
               <!-- HOMEPAGE ICON / navigates to homepage.handlebars -->
               <i class="bi bi-house-fill navIcon" width="32px"></i>
             </a>
@@ -54,17 +54,14 @@
             <!-- HOMEPAGE ICON / navigates to homepage.handlebars -->
 
             <a class="nav-item nav-link active" role="button" href="/dashboard" data-toggle="tooltip"
-              data-placement="top" title="Dashboard" id="dashboard-btn">
+              data-placement="bottom" title="Dashboard" id="dashboard-btn">
               <!-- HOMEPAGE ICON / navigates to homepage.handlebars -->
               <i class="bi bi-person-circle navIcon" width="32px"></i>
             </a>
-            <div id="nav-user-dropdown" class="dropdown d-flex">
-              <a class="nav-item nav-link active dropdown-toggle" role="button" id="user-username"
-                data-bs-toggle="dropdown" aria-expanded="false"></a>
-              <ul class="dropdown-menu" aria-labelledby="user-username">
-                <li><a class="dropdown-item" id="logout-btn" href="/logout">Logout</a></li>
-              </ul>
-            </div>
+            <a class="nav-item nav-link active" role="button" id="logout-btn" href="/logout" data-toggle="tooltip"
+              data-placement="bottom" title="Logout"> <i class="bi bi-box-arrow-right navIcon" width="32px"></i></a>
+            <p class="nav-item " style="width:fit-content" id="user-username" aria-expanded="false"></p>
+
             {{/if}}
           </div>
         </div>
@@ -75,12 +72,12 @@
       {{{body}}}
     </main>
   </div>
-  <footer class="text-center text-lg-start bg-light text-muted">
+  <footer class="text-center text-lg-start">
 
     <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    <div class="text-center p-4">
       © 2023 Copyright:
-      <a class="text-reset fw-bold" href="">WanderList</a>
+      <a class="text-reset fw-bold">JDempe</a>
     </div>
     <!-- Copyright -->
   </footer>

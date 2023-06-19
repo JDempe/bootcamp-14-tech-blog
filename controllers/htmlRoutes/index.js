@@ -56,9 +56,14 @@ router.get("/homepage", async (req, res) => {
         // look up the username for each comment from the user_id
         commentUsername: comment.commentUsername,
         commentDate: comment.updatedAt,
-        }));
+      }));
     }
-    
+
+    // organize the comments by date
+    for (let i = 0; i < postsData.length; i++) {
+      postsData[i].postComments.sort((a, b) => a.commentDate - b.commentDate);
+    }
+
     // Render the homepage with the postsData
     res.render("homepage", {
       styles: ["homepage"],
@@ -122,6 +127,41 @@ router.get("/dashboard/:username", async (req, res) => {
       where: { user_id: user.id },
     });
 
+    // Find the comments for each post
+    for (let i = 0; i < posts.length; i++) {
+      const comments = await Comment.findAll({
+        where: { post_id: posts[i].id },
+      });
+
+      // Add the comments to the postsData
+      posts[i].postComments = comments.map((comment) => ({
+        commentText: comment.commentText,
+        commentDate: comment.updatedAt,
+        user_id: comment.user_id,
+      }));
+    }
+
+    // get the username for each comment from the user_id
+    for (let i = 0; i < posts.length; i++) {
+      for (let j = 0; j < posts[i].postComments.length; j++) {
+        const usernameData = await User.findByPk(
+          posts[i].postComments[j].user_id,
+          {
+            attributes: { exclude: ["password"] },
+          }
+        );
+        const username = usernameData.get({ plain: true });
+        posts[i].postComments[j].commentUsername = username.username;
+      }
+    }
+
+    // Sort the comments from newest to oldest by date
+    for (let i = 0; i < posts.length; i++) {
+      posts[i].postComments.sort(
+        (a, b) => a.commentDate - b.commentDate
+      );
+    }
+
     // Create an array of the posts data
     var postsData = posts.map((post) => ({
       postId: post.id,
@@ -131,6 +171,9 @@ router.get("/dashboard/:username", async (req, res) => {
       timestamp: post.updatedAt
         ? post.updatedAt.toString().split(" ").slice(0, 4).join(" ")
         : post.updatedAt,
+
+      // Add the comments to the postsData
+      postComments: post.postComments,
     }));
 
     // Render the dashboard with the postsData

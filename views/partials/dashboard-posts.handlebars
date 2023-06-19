@@ -1,5 +1,5 @@
 {{#each myPosts}}
-  <div class="post" data-id="{{postId}}">
+  <div class="post" data-postid="{{postId}}">
     <!-- CONTAINS CARD -->
     <div class="card-container">
       <div class="card card-post-color">
@@ -42,7 +42,50 @@
               Discard Changes
             </button>
           </div>
+          
         </form>
+
+                    <div class="comment-section" style="display:none">
+                <div class="comment-list">
+
+                {{#if postComments}}
+                {{! Add each comment }}
+                {{#each postComments}}
+                <div class="comment-date">{{commentDate}} </div>
+                <div class="comment card">
+                    {{!-- Add the text from homepagePosts.postComments --}}
+                    <div class="comment-text">{{commentText}}</div>
+                    {{!-- Add the username from homepagePosts.postComments --}}
+                    <div class="comment-username">- {{commentUsername}}</div>
+                </div>
+                {{/each}}
+                {{else}}
+                <p class="card card-body no-comment-message">
+                    No comments yet!
+                </p>
+                {{/if}}
+                </div>
+
+
+                <textarea class="form-control comment-text" rows="3" placeholder="Add a comment" minlength="4"></textarea>
+                {{#if ../user.isLoggedIn}}
+                <button type="button" class="btn btn-primary card-btn add-comment-btn">
+                    Add Comment
+                </button>
+                {{else}}
+                <span class="js-signin-modal-trigger" data-signin="login">
+                    <button type="button" class="btn btn-primary card-btn add-comment-btn" disabled>
+                        Add Comment
+                    </button>
+                </span>
+
+                {{!-- Add a button that is disabled and has a popover that says to login --}}
+                {{/if}}
+            </div>
+
+            <button type="button" class="btn btn-primary card-btn show-comment-btn">
+                View Comments
+            </button>
       </div>
     </div>
   </div>

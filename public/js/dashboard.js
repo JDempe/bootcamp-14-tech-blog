@@ -21,7 +21,7 @@ $(document).ready(function () {
     }
 
     const post = $(this).closest(".post");
-    const postId = post.data("id");
+    const postId = post.data("postid");
 
     const postTextInput = post.find(".card-text");
     const postTitleInput = post.find(".card-title");
@@ -117,7 +117,7 @@ $(document).ready(function () {
       return;
     }
     const post = $(this).closest(".post");
-    const postId = post.data("id");
+    const postId = post.data("postid");
 
     try {
       const response = await fetch(`/api/posts/delete/${postId}`, {
@@ -163,7 +163,7 @@ $(document).ready(function () {
     newPostEl.find(".card-title").focus();
 
     // add the post ID to the new post in the data-id attribute
-    newPostEl.data("id", "");
+    newPostEl.data("postid", "");
 
     // insert the new element to the page after the no results container
     $("#my-posts-area").prepend(newPostEl);
@@ -195,7 +195,7 @@ $(document).ready(function () {
         type: "GET",
       }).then(function (response) {
         var id = response.id;
-        const postId = postEl.data("id"); // Get post id
+        const postId = postEl.data("postid"); // Get post id
 
         // based on whether post exists or not set the method and url(put or post)
         const method = postId ? "PUT" : "POST";
@@ -223,7 +223,7 @@ $(document).ready(function () {
 
 
             // If it was a new post
-            postEl.data("id", response.id); // Set the received id to the post
+            postEl.data("postid", response.id); // Set the received id to the post
 
         });
       });
@@ -239,7 +239,7 @@ $(document).ready(function () {
     const postEl = $(this).closest(".post");
 
     // get the id from the data-id attribute
-    const id = postEl.data("id");
+    const id = postEl.data("postid");
 
     // if it doesnt exist it was the new post template so just remove the element and enable the create new post button
     if (id === "") {

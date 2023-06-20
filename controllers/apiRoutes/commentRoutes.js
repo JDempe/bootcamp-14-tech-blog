@@ -53,11 +53,11 @@ router.post("/create/:id", async (req, res) => {
     });
 
     const returnVal = {
-      ...newComment,
+      createdAt: newComment.createdAt.toLocaleString(),
       username,
     };
 
-    res.status(201).json(newComment);
+    res.status(201).json(returnVal);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

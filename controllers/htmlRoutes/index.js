@@ -22,9 +22,7 @@ router.get("/homepage", async (req, res) => {
       postTitle: post.postTitle,
       postDescription: post.postDescription,
       // take the post.updatedAt and cut it off at the 4th space and only take the first half
-      timestamp: post.updatedAt
-        ? post.updatedAt.toString().split(" ").slice(0, 4).join(" ")
-        : post.updatedAt,
+      timestamp: post.updatedAt.toLocaleString(),
       postUserId: post.user_id,
     }));
 
@@ -61,12 +59,23 @@ router.get("/homepage", async (req, res) => {
 
     // organize the comments by date
     for (let i = 0; i < postsData.length; i++) {
-      postsData[i].postComments.sort((a, b) => a.commentDate - b.commentDate);
+      postsData[i].postComments.sort(
+        (a, b) => a.commentDate - b.commentDate
+      );
     }
 
+    // convert the commentDate to a string
+    for (let i = 0; i < postsData.length; i++) {
+      for (let j = 0; j < postsData[i].postComments.length; j++) {
+        postsData[i].postComments[j].commentDate =
+          postsData[i].postComments[j].commentDate.toLocaleString();
+      }
+    }
+
+    
     // Render the homepage with the postsData
     res.render("homepage", {
-      styles: ["homepage"],
+      styles: ["homepage", "posts", "search-bar"],
       scripts: ["homepage", "search-bar"],
       homepagePosts: postsData,
       user: {
@@ -141,6 +150,15 @@ router.get("/dashboard/:username", async (req, res) => {
       }));
     }
 
+        // convert the commentDate to a string
+        for (let i = 0; i < postsData.length; i++) {
+          for (let j = 0; j < postsData[i].postComments.length; j++) {
+            postsData[i].postComments[j].commentDate =
+              postsData[i].postComments[j].commentDate.toLocaleString();
+          }
+        }
+        
+
     // get the username for each comment from the user_id
     for (let i = 0; i < posts.length; i++) {
       for (let j = 0; j < posts[i].postComments.length; j++) {
@@ -168,9 +186,7 @@ router.get("/dashboard/:username", async (req, res) => {
       postTitle: post.postTitle,
       postDescription: post.postDescription,
       // Take the post.updatedAt and cut it off at the 4th space and only take the first half
-      timestamp: post.updatedAt
-        ? post.updatedAt.toString().split(" ").slice(0, 4).join(" ")
-        : post.updatedAt,
+      timestamp: post.updatedAt.toLocaleString(),
 
       // Add the comments to the postsData
       postComments: post.postComments,
@@ -178,7 +194,7 @@ router.get("/dashboard/:username", async (req, res) => {
 
     // Render the dashboard with the postsData
     res.render("dashboard", {
-      styles: ["dashboard", "homepage"],
+      styles: ["dashboard", "homepage", "posts", "search-bar" ],
       scripts: ["dashboard", "homepage", "search-bar"],
       myPosts: postsData,
       user: {

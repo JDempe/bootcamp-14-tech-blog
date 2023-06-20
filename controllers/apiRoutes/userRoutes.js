@@ -9,12 +9,12 @@ router.post("/signup", async (req, res) => {
         // verify that there is no user in the database with the provided email
         const userExists = await User.findOne({
             where: {
-                email: req.body.email.toLowerCase().trim(),
+                username: req.body.username.toLowerCase().trim(),
             },
         });
 
         if (userExists) {
-            return res.status(422).json({ errorCode: "emailExists" });
+            return res.status(422).json({ errorCode: "userExists" });
         }
 
         // verify that the provided username does not exist in the database.
@@ -31,7 +31,6 @@ router.post("/signup", async (req, res) => {
         // once all verification steps have been successfully completed, proceed to create the user in the database.
         const userData = await User.create({
             username: req.body.username.trim(),
-            email: req.body.email.toLowerCase().trim(),
             password: req.body.password.trim(),
         });
 
@@ -76,7 +75,7 @@ router.post("/login", async (req, res) => {
         if (!validatePassword) {
             return res
                 .status(404)
-                .json({ message: "Incorrect email or password, please try again" });
+                .json({ message: "Incorrect username or password, please try again" });
         }
         const userId = userData.id;
         console.log("!!!!!userData.id!!", userData.id);

@@ -150,15 +150,6 @@ router.get("/dashboard/:username", async (req, res) => {
       }));
     }
 
-        // convert the commentDate to a string
-        for (let i = 0; i < postsData.length; i++) {
-          for (let j = 0; j < postsData[i].postComments.length; j++) {
-            postsData[i].postComments[j].commentDate =
-              postsData[i].postComments[j].commentDate.toLocaleString();
-          }
-        }
-        
-
     // get the username for each comment from the user_id
     for (let i = 0; i < posts.length; i++) {
       for (let j = 0; j < posts[i].postComments.length; j++) {
@@ -180,14 +171,21 @@ router.get("/dashboard/:username", async (req, res) => {
       );
     }
 
+    // convert the commentDate to a string
+    for (let i = 0; i < posts.length; i++) {
+      for (let j = 0; j < posts[i].postComments.length; j++) {
+        posts[i].postComments[j].commentDate =
+
+          posts[i].postComments[j].commentDate.toLocaleString();
+      }
+    }
+
+
     // Create an array of the posts data
     var postsData = posts.map((post) => ({
       postId: post.id,
       postTitle: post.postTitle,
       postDescription: post.postDescription,
-      // Take the post.updatedAt and cut it off at the 4th space and only take the first half
-      timestamp: post.updatedAt.toLocaleString(),
-
       // Add the comments to the postsData
       postComments: post.postComments,
     }));

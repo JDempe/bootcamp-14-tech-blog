@@ -18,41 +18,12 @@
   max-width: 65%;
 }
 
-.bi-arrow-clockwise {
-  font-size: 1.1rem;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-.bi-arrow-clockwise:hover {
-  color: #6eb1eb; /* Change the color when hovered */
-}
-
-.btn-refresh {
-  background-color: #2887d9;
-  border-color: #2887d9;
-}
-
-.btn-refresh:hover {
-  background-color: #6eb1eb;
-  border-color: #6eb1eb;
-}
-
-.btn-refresh:active {
-  transform: scale(0.99);
-  box-shadow: 0 0 0 0.25rem #6eb1eb80;
-}
-
 .create-text {
   padding-left: 4px;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   font-size: 1.35rem;
   color: #ffffff;
-}
-
-.search-bar {
-  width: 15rem;
 }
 
 .input-group-text {
@@ -93,26 +64,6 @@
 }
 
 /* card css */
-.date-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.date-hr {
-  display: inline-block;
-  width: 30%;
-  margin: 10px 0px;
-  border: none;
-  border-top: 1px solid #000;
-}
-
-.timestamp {
-  display: inline-block;
-  margin: 0 10px;
-  color: #565c75;
-}
 
 .card-container {
   padding: 0.5rem 0 1.5rem;
@@ -169,36 +120,12 @@
   margin: 4px 0 4px 0;
 }
 
-.avatar-container {
-  display: flex;
-  align-items: center;
-  padding-top: 7px;
-}
-
-.avatar-border {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 3px solid rgb(142, 143, 155);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.post-avatar {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .card-username {
   margin-right: 10px;
   margin-left: 7px;
   padding-top: 8px;
   font-family: "Hammersmith One", sans-serif;
   font-size: 1.05rem;
-  color: #6e6c78;
 }
 
 .post-updated {
@@ -229,21 +156,6 @@
   border-bottom-color: #f56d6d !important;
 }
 
-.btn-refresh {
-  background-color: #6b7bb3;
-  border-color: #6b7bb3;
-}
-
-.btn-refresh:hover {
-  background-color: #9fb1ec;
-  border-color: #9fb1ec;
-}
-
-.btn-refresh:active {
-  background-color: #445177;
-  border-color: #445177;
-}
-
 .card-post-color {
   background-color: #323234;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
@@ -269,10 +181,6 @@
   color: var(--discovery-page-text-dark);
 }
 
-.card-location {
-  color: #9fb1ec;
-}
-
 .card-hr {
   border-color: white;
 }
@@ -281,20 +189,16 @@
 }
 
 .form-control {
-  background-color: #494a61;
-  border-color: #63709d;
+  background-color: #413e3e;
+  border-color: #3a3a3b;
   color: var(--discovery-page-text-dark);
 }
 
 .form-control:focus {
   outline: none;
-  box-shadow: 0 0 5px #9fb1ec;
+  box-shadow: 0 0 5px #10e310;
 }
 
 .form-control::placeholder {
-  color: var(--discovery-page-text-dark);
-}
-
-.bi-search {
   color: var(--discovery-page-text-dark);
 }

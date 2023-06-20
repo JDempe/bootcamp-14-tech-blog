@@ -2,16 +2,11 @@
   /* Dark Color variables */
   --navbar-background-dark: #2f2f2f;
   --navbar-text-dark: #e7e9f0;
-  --button-background-dark: #01614b;
+  --button-background-dark: #30D2F2;
   --button-text-dark: #ffffff;
-  --button-border-dark: #01614b;
+  --button-border-dark: #26adc8;
   --footer-background-dark: #2f2f2f00;
   --footer-text-dark: #e7e9f0;
-}
-
-@font-face {
-  font-family: "Wanderlust";
-  src: url("../fonts/WanderlustRegular.woff") format("woff");
 }
 
 html {
@@ -44,7 +39,6 @@ body {
   width: fit-content;
   margin-right: 0px;
   text-align: center;
-  font-family: "Wanderlust", sans-serif;
   font-feature-settings: "salt" 1, "ss01" 1;
   font-size: 1.8rem;
   color: var(--navbar-text-dark);

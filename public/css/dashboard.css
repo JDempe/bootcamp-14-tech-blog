@@ -27,12 +27,12 @@
 
 .bi-plus-square-fill {
   font-size: 1.5rem;
-  color: #6b7bb3;
+  color: #30D2F2;
   cursor: pointer;
 }
 
 .bi-plus-square-fill:hover {
-  color: #9fb1ec;
+  color: #3c7a86;
 }
 
 .create-text, .btn-refresh {
@@ -45,7 +45,7 @@
 }
 
 .create-text:hover, .btn-refresh:hover {
-  color: #818181;
+  color: #c5c9d6;
 }
 
 .search-bar {
@@ -90,28 +90,6 @@
 }
 
 /* card css */
-.date-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.date-hr {
-  display: inline-block;
-  width: 30%;
-  margin: 10px 0px;
-  border: none;
-  border-top: 1px solid #000;
-  border-color: #ffffff;
-}
-
-.timestamp {
-  display: inline-block;
-  margin: 0 10px;
-  color: var(--discovery-page-text-dark);
-}
-
 .card-container {
   padding: 0.5rem 0 1.5rem;
   display: flex;

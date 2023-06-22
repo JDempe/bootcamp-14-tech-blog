@@ -1,18 +1,18 @@
 [![License: MIT license](https://img.shields.io/badge/License-MIT_license-success)](https://opensource.org/licenses/MIT)    
 ![Project status](https://img.shields.io/badge/Status-Complete-success)
 
-#  Tech Blog
+# CBC Week 04 Challenge: Tech Blog
 
 ## General Information
+
+This is the week 14 challenge for the UC Berkeley Coding Bootcamp.  The goal of this project was to create a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well.  This site was built using the Model-View-Controller paradigm and uses Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
 ---
 ## Table of Contents
 
 * [General Information](#general-information)
 * [Deployed Site](#deployed-site)
-* [Preview](#preview)
 * [Demo](#demo)
-* [Description](#description)
 * [Technologies Used](#technologies-used)
 * [Installation](#installation)
 * [Usage](#usage)
@@ -23,11 +23,12 @@
 
 ## Deployed Site
 
+The deployed site can be found [here](https://jdempe-tech-blog-6e7fa636d502.herokuapp.com/).
+
 ---
 ## Walkthrough Video
 
----
-## Description
+
 
 ---
 ## Technologies Used
@@ -63,7 +64,7 @@ If you would prefer to see a local version of the site, follow the steps below:
 3. Run `npm install` to install the dependencies.
 4. Create a `.env` file in the root directory of the cloned repository.  An example of the contents of the `.env` file is shown below:
     ```
-    DB_NAME=techblog_db
+    DB_NAME=techblogdb
     DB_USER=root
     DB_PW=your_password
     SECRET=your_secret
@@ -76,26 +77,43 @@ If you would prefer to see a local version of the site, follow the steps below:
 ---
 ## Usage
 
+### Homepage
+
+The homepage displays all of the blog posts that have been created.  If the user is not logged in, they will be prompted to log in or sign up when they try to add a comment. If the user is logged in, they will be able to add a comment to any of the posts.
+
+![Homepage](./documentation/images/homepage.png)
+
+### Dashboard
+
+The dashboard displays all of the posts that have been created by the logged in user.  The user can click on any of the posts to edit or delete them.  The user can also create a new post by clicking on the "New Post" button.
+
+![Dashboard](./documentation/images/dashboard.png)
+
 ---
 ## Credits
 ### Resources
 
 The following resources and individuals made invaluable contributions to the project:
 
-#### Fonts
+#### Class Resources
+
+Code from the Wanderlist project was used as a starting point for this project.  This project was created by the following individuals:
+
+- Olena Pashchenko - [UserOlena](https://github.com/UserOlena)
+- Jennifer Rytikoff - [jenryt](https://github.com/jenryt)
+- Bandhavi Bendi - [bbandhu](https://github.com/bbandhu)
+- Kevin Small - [kevrev](https://github.com/Kevrev)
+- Joshua Dempe - [JDempe](https://github.com/JDempe)
 
 #### Images
 
-- [Favicon Converter](https://favicon.io/favicon-converter/) provides a simple way to take any image and convert it to a favicon.  The favicon for this project was created from [this](https://www.flaticon.com/free-icons/compass) compass image created by Dimitry Miroliubov on [FlatIcon](https://www.flaticon.com/).
+- [Favicon Converter](https://favicon.io/favicon-converter/) provides a simple way to take any image and convert it to a favicon.
 
 - [Icons8](https://icons8.com/icons/) provide simple images and icons.
-  - [Blank Avatar Image](https://icons8.com/icon/65342/customer)
   
 - [Matt Visiwig](https://twitter.com/MattVisiwig) created an SVG background creator that provides many free options.  The background image was created from [this](https://www.svgbackgrounds.com/) tool.
 
 - [Shields.io](https://shields.io/) provides the badges for the README.
-
-- [Dighital](https://dighital.com/icon-pack/icons/flat-icons/travel-people-icons/) icons were purchased for the avatar images.
 
 #### Templates / Libraries
 
@@ -107,11 +125,6 @@ The following resources and individuals made invaluable contributions to the pro
 
 - [ChatGPT](https://chat.openai.com/) is a chatbot that uses GPT-3 to generate responses.  The chatbot was used to come up with the site name.
 
-### Educational
-#### Blog Posts
-
-Here are some insightful and informative blogs that were valuable resources:
-
 ---
 ## Contact
 ### Collaborators
@@ -120,9 +133,9 @@ Here are some insightful and informative blogs that were valuable resources:
 ---
 ## License
 
-This project is open source and available under the [MIT](./LICENSE)
+This project is open source and available under the [MIT](./LICENSE) license.
 
 ---
 ## How to Contribute
 
-Looking to contribute?  Find out how at https://github.com/JDempe/bootcamp-14-tech-blog!
+Looking to contribute?  Find out how at https://github.com/JDempe/bootcamp-14-tech-blog.

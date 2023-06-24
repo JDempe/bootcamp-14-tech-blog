@@ -8,11 +8,11 @@
 This is the week 14 challenge for the UC Berkeley Coding Bootcamp.  The goal of this project was to create a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well.  This site was built using the Model-View-Controller paradigm and uses Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
 ---
+
 ## Table of Contents
 
 * [General Information](#general-information)
 * [Deployed Site](#deployed-site)
-* [Demo](#demo)
 * [Technologies Used](#technologies-used)
 * [Installation](#installation)
 * [Usage](#usage)
@@ -26,11 +26,7 @@ This is the week 14 challenge for the UC Berkeley Coding Bootcamp.  The goal of 
 The deployed site can be found [here](https://jdempe-tech-blog-6e7fa636d502.herokuapp.com/).
 
 ---
-## Walkthrough Video
 
-
-
----
 ## Technologies Used
 
 * [node.js v18.12.1](https://nodejs.org/en) -  A scalable server-side JavaScript runtime;
@@ -50,8 +46,8 @@ The deployed site can be found [here](https://jdempe-tech-blog-6e7fa636d502.hero
 * [Heroku](https://www.heroku.com/) - Cloud platform for deploying and managing applications.
 
 ---
-## Installation
 
+## Installation
 ### Prerequisites
 * [Node.js](https://nodejs.org/en/)
 * [mySQL](https://www.mysql.com/)
@@ -75,21 +71,22 @@ If you would prefer to see a local version of the site, follow the steps below:
 8. Navigate to `http://localhost:3001` in your browser to view the site.
 
 ---
-## Usage
 
+## Usage
 ### Homepage
 
 The homepage displays all of the blog posts that have been created.  If the user is not logged in, they will be prompted to log in or sign up when they try to add a comment. If the user is logged in, they will be able to add a comment to any of the posts.
 
-![Homepage](./documentation/images/homepage.png)
+![Homepage](./documentation/images/jdempe-tech-blog%20homepage.png)
 
 ### Dashboard
 
 The dashboard displays all of the posts that have been created by the logged in user.  The user can click on any of the posts to edit or delete them.  The user can also create a new post by clicking on the "New Post" button.
 
-![Dashboard](./documentation/images/dashboard.png)
+![Dashboard](./documentation/images/jdempe-tech-blog%20dashboard.png)
 
 ---
+
 ## Credits
 ### Resources
 
@@ -126,16 +123,19 @@ Code from the Wanderlist project was used as a starting point for this project. 
 - [ChatGPT](https://chat.openai.com/) is a chatbot that uses GPT-3 to generate responses.  The chatbot was used to come up with the site name.
 
 ---
+
 ## Contact
 ### Collaborators
 - Joshua Dempe - [JDempe](https://github.com/JDempe)
 
 ---
+
 ## License
 
 This project is open source and available under the [MIT](./LICENSE) license.
 
 ---
+
 ## How to Contribute
 
 Looking to contribute?  Find out how at https://github.com/JDempe/bootcamp-14-tech-blog.

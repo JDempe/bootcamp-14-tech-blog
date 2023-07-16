@@ -1,7 +1,7 @@
 [![License: MIT license](https://img.shields.io/badge/License-MIT_license-success)](https://opensource.org/licenses/MIT)    
 ![Project status](https://img.shields.io/badge/Status-Complete-success)
 
-# CBC Week 04 Challenge: Tech Blog
+# CBC Week 14 Challenge: Tech Blog
 
 ## General Information
 
